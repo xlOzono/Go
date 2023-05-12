@@ -16,5 +16,5 @@ func main() {
 	galletasSobrantes := galletas % personas
 
 	fmt.Printf("Se deben dar %d galletas a cada amigo\n", galletasPorAmigo)
-	fmt.Printf("Sobran %d gallentas \n", galletasSobrantes)
+	fmt.Printf("Sobran %d galletas \n", galletasSobrantes)
 }
