@@ -3,28 +3,24 @@ package main
 import "fmt"
 
 func main() {
-	var n int
-	fmt.Print("Ingrese un numero: ")
-	fmt.Scan(&n)
+    fmt.Print("Ingrese un número límite: ")
+    var limite int
+    fmt.Scan(&limite)
 
-	fmt.Println("Los numeros perfectos hasta",n,"son: ")
-
-	for i := 1; i <= n; i++{
-		if esPerfecto(i, i - 1){
-			fmt.Println(i)
-		}
-	} 
-
+    fmt.Printf("Números perfectos hasta %d:\n", limite)
+    for i := 1; i <= limite; i++ {
+        if esPerfecto(i) {
+            fmt.Println(i)
+        }
+    }
 }
 
-func esPerfecto(num, divisorSum int) bool{
-	if divisorSum == 0{
-		return num == 0
-	}
-
-	if num % divisorSum == 0{
-		return esPerfecto(num - divisorSum, divisorSum - 1)
-	}
-
-	return esPerfecto(num, divisorSum - 1)
+func esPerfecto(num int) bool {
+    sum := 0
+    for i := 1; i < num; i++ {
+        if num%i == 0 {
+            sum += i
+        }
+    }
+    return sum == num
 }
